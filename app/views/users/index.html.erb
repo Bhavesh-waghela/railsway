@@ -1,0 +1,10 @@
+<h1>Users Welcome</h1>
+<hr>
+<div>
+  <% if user_signed_in? %>
+    <p> <%= link_to "Tutorials" , tutorials_path %> 
+        <%= link_to "Solutions" , solutions_path %></p><br>
+    <hr>
+    <%= link_to "Logout" , destroy_user_session_path , :method => :delete %>
+  <% end %>
+</div>
