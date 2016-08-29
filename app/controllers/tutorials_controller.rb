@@ -11,7 +11,7 @@ class TutorialsController < ApplicationController
   end
 
   def create
-  	@tutorial = Tutorial.create(title: params[:title] , description: params[:description] , position: params[:position])
+  	@tutorial = Tutorial.create(user_params)
     @tutorial.save
 
     respond_to do |format|
@@ -23,4 +23,10 @@ class TutorialsController < ApplicationController
   def show
   	@tutorial = Tutorial.find(params[:id])
   end
+
+
+  private
+   def user_params
+    params.require(:tutorails).permit(:title, :description, :position)
+   end
 end
