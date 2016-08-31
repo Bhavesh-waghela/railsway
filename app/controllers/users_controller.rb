@@ -1,12 +1,9 @@
 class UsersController < ApplicationController
-  before_filter :admin_only
-
+  #before_filter :admin_only
+  
   def index
   	@users = User.all
-  	
-  	#render json: @users
   end
-
   def new
   	@user = User.new
   end
@@ -18,15 +15,14 @@ class UsersController < ApplicationController
         redirect_to :back, :alert => "Access denied."
       end
     end
+    redirect_to root_path
   end
 
   def create
   	@user = User.create(name: params[:name])
 
-  	@user.save
-
   	respond_to do |format|
-
+      format.html {redirect_to root_path }
   		format.json { render :json }
   	end	
   end
@@ -37,16 +33,16 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update_attributes(name: params[:name])
-      #redirect_to users_path, :notice => "User updated."
+      redirect_to root_path, :notice => "User updated."
     else
-     # redirect_to users_path, :alert => "Unable to update user."
+      redirect_to root_path, :alert => "Unable to update user."
     end
   end
 
   def destroy
     user = User.find(params[:id])
     user.destroy
-   # redirect_to users_path, :notice => "User deleted."
+    redirect_to root_path, :notice => "User deleted."
   end
 
   private

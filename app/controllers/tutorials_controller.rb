@@ -3,7 +3,10 @@ class TutorialsController < ApplicationController
   def index
   	@tutorials = Tutorial.all
 
-  	render json: @tutorials
+    respond_to do |format|
+     format.html 
+     format.json 
+    end 
   end
 
   def new
@@ -12,12 +15,11 @@ class TutorialsController < ApplicationController
 
   def create
   	@tutorial = Tutorial.create(user_params)
-    @tutorial.save
-
-    respond_to do |format|
-
-  		format.json { render :json }
-  	end		
+    
+     respond_to do |format|
+      format.html 
+  	 	format.json 
+    end		
   end
 
   def show

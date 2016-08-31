@@ -4,7 +4,7 @@
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
                 Menu <i class="fa fa-bars"></i>
             </button>
-            <a class="navbar-brand page-scroll" href="#page-top">
+            <a class="navbar-brand page-scroll" href="http://localhost:3000/">
                 <i class="fa fa-play-circle"></i> <span class="light">Rails</span> Way
             </a>
         </div>
@@ -15,17 +15,24 @@
                 <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
                 <li class="hidden">
                     <a href="#page-top"></a>
-                </li>
-                <% if user_signed_in? %>
-                  <li>
-                    <%= link_to "Tutorials" , tutorials_path %> 
-                  </li>
-                  <li>
-                    <%= link_to "Solutions" , solutions_path %>
-                  </li>
+                </li> 
+                    <li>
+                      <%= link_to "Tutorials" , tutorials_path %> 
+                    </li>
+                    <li>
+                      <%= link_to "Solutions" , solutions_path %>
+                    </li>
+                 <% if user_signed_in? %>
                   <li>
                     <%= link_to "Logout" , destroy_user_session_path , :method => :delete %>
-                  </li>
+                 </li> 
+                <% else %>
+                    <li>
+                      <%= link_to "Sign In" , new_user_session_path %>
+                    </li>
+                    <li>
+                      <%= link_to "Get Started" , new_user_registration_path %>
+                    </li> 
                 <% end %>
             </ul>
         </div>

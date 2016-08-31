@@ -5,7 +5,10 @@ class SolutionsController < ApplicationController
      @solutions.each do |solution|
        solution.votes
     end
-  	render json: @solutions
+  	respond_to do |format|
+     format.html 
+     format.json 
+    end 
   end
 
   def new
@@ -14,19 +17,24 @@ class SolutionsController < ApplicationController
 
   def create
   	@solution = Solution.create(user_params)
-  	respond_to do |format|
-  		format.json { render :json }
-  	end	
+    
+    respond_to do |format|
+     format.html 
+     format.json 
+    end	
   end
 
   def show
     @solution = Solution.find(params[:id])
-    render json: @solution
+    respond_to do |format|
+     format.html 
+     format.json 
+    end
   end
 
   private
 
   def user_params
-    params.require(:solutions).permit(:question, :answer)
+    params.require(:solutions).permit(:question, :answer , :vote_id)
   end
 end
