@@ -1,29 +1,60 @@
-<h2>Sign up</h2>
-
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+<% content_for :body_class, "sign_up" %>
+<!-- REGISTRATION FORM -->
+<div class="text-center" style="padding:50px 0">
+  <div class="logo">register</div>
+  <!-- Main Form -->
+  <div class="login-form-1">
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name) , html: { class: "text-left" , id: "register-form"}) do |f| %>
+      <div class="login-form-main-message"></div>
+      <div class="main-login-form">
+        <div class="login-group">
+          <div class="form-group">
+            <label for="reg_username" class="sr-only">Email</label>
+            <%= f.email_field :email, autofocus: true , placeholder: "email" , id: "reg_username" , class: "form-control"%>
+          </div>
+          <div class="form-group">
+            <label for="reg_password" class="sr-only">Contraseña</label>
+            <% if @minimum_password_length %>
+              <em>(<%= @minimum_password_length %> characters minimum)</em>
+            <% end %><br />
+              <%= f.password_field :password, autocomplete: "off" , placeholder: "Password", id: "reg_password" , class: "form-control" %>
+          </div>
+          <div class="form-group">
+            <label for="reg_password_confirm" class="sr-only">Password Confirm</label>
+            <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "confirm password" , id: "reg_password_confirm" , class: "form-control"%>
+          </div>
+          <div class="form-group login-group-checkbox">
+            <input type="radio" class="" name="reg_gender" id="male" placeholder="username">
+            <label for="male">male</label>
+            
+            <input type="radio" class="" name="reg_gender" id="female" placeholder="username">
+            <label for="female">female</label>
+          </div>
+          
+          <div class="form-group login-group-checkbox">
+            <input type="checkbox" class="" id="reg_agree" name="reg_agree">
+            <label for="reg_agree">i agree with <a href="#">terms</a></label>
+          </div>
+        </div>
+        <button type="submit" class="login-button"><i class="fa fa-chevron-right"></i></button>
+      </div>
+      <div class="etc-login-form">
+        <p>already have an account?<%= link_to "Click Here", new_user_session_path%></p>
+      </div>
+    <% end %>  
   </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+  <!-- end:Main Form -->
+</div>
+<style type="text/css">
+.sign_up{
+    height: 100%;
+    width: 100%;
+    background: url(/assets/sign_in-bg.jpg);
+ }
+.logo{
+  color: #000;
+}
+.etc-login-form{
+  color: #000;
+}
+</style>    

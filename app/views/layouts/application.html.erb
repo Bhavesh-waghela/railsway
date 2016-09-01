@@ -8,11 +8,13 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-
-  <p class="notice" style="text-align: center;"><%= notice %></p>
-  <p class="alert" style="text-align: center;"><%= alert %></p>
+  <body class="<%= content_for :body_class %>">
+  <%if flash[:notice]%>
+    <p class="notice" style="text-align: center;"><%= notice %></p>
+    <p class="alert" style="text-align: center;"><%= alert %></p>
+  <% end %>
   <%= yield %>
+  
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
     
   </body>

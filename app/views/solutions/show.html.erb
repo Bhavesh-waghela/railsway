@@ -41,15 +41,22 @@
     <!-- /.container -->
 </nav>
     <!-- Main-Content-->
-    <div class="Solutions">
-      <h3 class="post-title">
-          <%= @solution.question %>
-      </h3>
-      <h4 class="post-subtitle">
-          <%= @solution.answer%><br>
-          <%= @solution.votes.count %>
-      </h4>
-    </div> 
+<section>
+  <div class="row">
+    <div class="card-flat" style="display: block;"">
+     <div class="col12">
+        <div class="Solutions" style="padding-top: 125px; padding-left: 112px;">
+         <h6 class="post-title">
+          <p><%= @solution.question %></p>
+         </h6>
+         <h8 class="post-subtitle">
+          <p><%= @solution.answer%></p></h8>
+          <p>Votes: <%= @solution.votes.count %></p> 
+        </div>  
+      </div> 
+    </div>
+  </div>
+</section>
 
 <!-- Footer -->
 <footer>
@@ -57,3 +64,9 @@
         <p>Copyright &copy; RailsWay 2016</p>
     </div>
 </footer>
+
+<style type="text/css">
+.intro {
+    background: url(/assets/show-posts.jpg);
+  }
+</style>  

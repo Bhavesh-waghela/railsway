@@ -44,7 +44,7 @@
 <div class="main-content">
   <div class="row">
     <div class="col-lg-8">
-     <div class="col-md-6">
+     <div class="col-md-6 col-md-8">
        <!-- Blog Search Well -->
         <div class="well">
             <h4>Search Tutorials</h4>
@@ -62,7 +62,7 @@
     </div>
   </div>
               
-  <div class="tutorials">
+  <div class="tutorials" style="padding-left: 113px;">
       <%  @tutorials.each do |tutorails|%>
           <h3 class="post-title">
               <%= link_to tutorails.title , tutorial_path(tutorails)%>
@@ -81,6 +81,4 @@
         <p>Copyright &copy; RailsWay 2016</p>
     </div>
 </footer>
-
-
 

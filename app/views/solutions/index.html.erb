@@ -4,7 +4,7 @@
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
                 Menu <i class="fa fa-bars"></i>
             </button>
-            <a class="navbar-brand page-scroll" href="#page-top">
+            <a class="navbar-brand page-scroll" href="http://localhost:3000/">
                 <i class="fa fa-play-circle"></i> <span class="light">Rails</span> Way
             </a>
         </div>
@@ -40,23 +40,30 @@
     </div>
     <!-- /.container -->
 </nav>
-
-    <div class="Solutions">
-        <%  @solutions.each do |solution|%>
-            <h3 class="post-title">
-                <%= link_to solution.question , solution_path(solution) %>
-            </h3>
-            <h4 class="post-subtitle">
-                <%= solution.answer%><br>
-	            <%= solution.votes.count %>
-              <hr>
-            </h4>
-       <% end %>
-    </div>   
-
-<!-- Footer -->
-<footer>
-    <div class="container text-center">
-        <p>Copyright &copy; RailsWay 2016</p>
+<div class="row">
+  <div class="col-md-9 col-md-offset-1">
+    <div class="solutions" style="margin-top: 126px; ">
+      <%  @solutions.each do |solution|%>
+        <div>
+          <p>
+            <small class="total_votes">
+              <%= solution.votes.count%>
+            </small>
+            <%= link_to solution.question , solution_path(solution) %>
+          </p>
+          <p>
+            <%= truncate solution.answer %>
+            <br>
+            <%= link_to "read more" , solution_path(solution) %>
+          </p>
+        </div>
+      <% end %>
     </div>
+  </div>
+</div>
+<footer>
+  <div class="container text-center">
+      <p>Copyright &copy; RailsWay 2016</p>
+  </div>
 </footer>
+
