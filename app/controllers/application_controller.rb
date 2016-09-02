@@ -4,11 +4,11 @@ class ApplicationController < ActionController::Base
   respond_to :html, :json
 
   def after_sign_in_path_for(resource)
-    if current_user.admin? 
+    if current_user.admin?
       rails_admin.dashboard_path
     else 
      root_path
-    end	
+    end
   end
 
   protected
