@@ -239,7 +239,8 @@ label:hover:before {
 [type="checkbox"]:not(:checked) + label:after,
 [type="checkbox"]:checked + label:after {
   content: '✔';
-  top: 0;
+  left: 3px;
+  top: 2px;
   }
 [type="radio"]:not(:checked) + label:after,
 [type="radio"]:checked + label:after {
