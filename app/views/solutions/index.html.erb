@@ -1,50 +1,15 @@
-<nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
-                Menu <i class="fa fa-bars"></i>
-            </button>
-            <a class="navbar-brand page-scroll" href="http://localhost:3000/">
-                <i class="fa fa-play-circle"></i> <span class="light">Rails</span> Way
-            </a>
-        </div>
-
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
-            <ul class="nav navbar-nav">
-                <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
-                <li class="hidden">
-                    <a href="#page-top"></a>
-                </li> 
-                    <li>
-                      <%= link_to "Tutorials" , tutorials_path %> 
-                    </li>
-                    <li>
-                      <%= link_to "Solutions" , solutions_path %>
-                    </li>
-                 <% if user_signed_in? %>
-                  <li>
-                    <%= link_to "Logout" , destroy_user_session_path , :method => :delete %>
-                 </li> 
-                <% else %>
-                    <li>
-                      <%= link_to "Sign In" , new_user_session_path %>
-                    </li>
-                    <li>
-                      <%= link_to "Get Started" , new_user_registration_path %>
-                    </li> 
-                <% end %>
-            </ul>
-        </div>
-        <!-- /.navbar-collapse -->
-    </div>
-    <!-- /.container -->
-</nav>
+<%= render "/custom/form.html.erb"%>
 <div class="row">
   <div class="col-md-9 col-md-offset-1">
+    <div class="tag_cloud" style="margin-top: 150px">
+        <% tag_cloud Solution.tag_counts, %w[s m l] do |tag, css_class| %>
+          <%= link_to tag.name, tag_path(tag.name), class: css_class %>
+        <% end %>
+    </div>
     <div class="solutions" style="margin-top: 126px; ">
       <%  @solutions.each do |solution|%>
         <div>
+         Tags: <%= raw solution.tags.map(&:name).map { |t| link_to t, tag_path(t) }.join(', ') %>
           <p>
             <small class="total_votes">
               <%= solution.votes.count%>
@@ -66,4 +31,3 @@
       <p>Copyright &copy; RailsWay 2016</p>
   </div>
 </footer>
-

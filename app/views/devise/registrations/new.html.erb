@@ -1,49 +1,53 @@
 <% content_for :body_class, "sign_up" %>
-<!-- REGISTRATION FORM -->
-<div class="text-center" style="padding:50px 0">
-  <div class="logo">register</div>
-  <!-- Main Form -->
-  <div class="login-form-1">
-    <%= form_for(resource, as: resource_name, url: registration_path(resource_name) , html: { class: "text-left" , id: "register-form"}) do |f| %>
-      <div class="login-form-main-message"></div>
-      <div class="main-login-form">
-        <div class="login-group">
-          <div class="form-group">
-            <label for="reg_username" class="sr-only">Email</label>
-            <%= f.email_field :email, autofocus: true , placeholder: "email" , id: "reg_username" , class: "form-control"%>
-          </div>
-          <div class="form-group">
-            <label for="reg_password" class="sr-only">Contraseña</label>
-            <% if @minimum_password_length %>
-              <em>(<%= @minimum_password_length %> characters minimum)</em>
-            <% end %><br />
-              <%= f.password_field :password, autocomplete: "off" , placeholder: "Password", id: "reg_password" , class: "form-control" %>
-          </div>
-          <div class="form-group">
-            <label for="reg_password_confirm" class="sr-only">Password Confirm</label>
-            <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "confirm password" , id: "reg_password_confirm" , class: "form-control"%>
-          </div>
-          <div class="form-group login-group-checkbox">
-            <input type="radio" class="" name="reg_gender" id="male" placeholder="username">
-            <label for="male">male</label>
-            
-            <input type="radio" class="" name="reg_gender" id="female" placeholder="username">
-            <label for="female">female</label>
-          </div>
-          
-          <div class="form-group login-group-checkbox">
-            <input type="checkbox" class="" id="reg_agree" name="reg_agree">
-            <label for="reg_agree">i agree with <a href="#">terms</a></label>
-          </div>
+<div class="row">
+  <div class="col-md-4 col-md-offset-3 signinbg" style="padding: 23px;">
+    <!-- REGISTRATION FORM -->
+    <div class="text-center" style="padding:16px 0">
+      <div class="logo">register</div>
+        <!-- Main Form -->
+        <div class="login-form-1">
+          <%= form_for(resource, as: resource_name, url: registration_path(resource_name) , html: { class: "text-left" , id: "register-form"}) do |f| %>
+            <div class="login-form-main-message"></div>
+            <div class="main-login-form">
+              <div class="login-group">
+                <div class="form-group">
+                  <label for="reg_username" class="sr-only">Email</label>
+                  <%= f.email_field :email, autofocus: true , placeholder: "email" , id: "reg_username" , class: "form-control"%>
+                </div>
+                <div class="form-group">
+                  <label for="reg_password" class="sr-only">Contraseña</label>
+                  <% if @minimum_password_length %>
+                    <em>(<%= @minimum_password_length %> characters minimum)</em>
+                  <% end %><br />
+                    <%= f.password_field :password, autocomplete: "off" , placeholder: "Password", id: "reg_password" , class: "form-control" %>
+                </div>
+                <div class="form-group">
+                  <label for="reg_password_confirm" class="sr-only">Password Confirm</label>
+                  <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "confirm password" , id: "reg_password_confirm" , class: "form-control"%>
+                </div>
+                <div class="form-group login-group-checkbox">
+                  <input type="radio" class="" name="reg_gender" id="male" placeholder="username">
+                  <label for="male">male</label>
+                  
+                  <input type="radio" class="" name="reg_gender" id="female" placeholder="username">
+                  <label for="female">female</label>
+                </div>
+                
+                <div class="form-group login-group-checkbox">
+                  <input type="checkbox" class="" id="reg_agree" name="reg_agree">
+                  <label for="reg_agree">i agree with <a href="#">terms</a></label>
+                </div>
+              </div>
+              <button type="submit" class="login-button" style="margin-top: -18px"><i class="fa fa-chevron-right"></i></button>
+            </div>
+            <div class="etc-login-form">
+              <p>already have an account?<%= link_to "Click Here", new_user_session_path%></p>
+            </div>
+          <% end %>  
         </div>
-        <button type="submit" class="login-button"><i class="fa fa-chevron-right"></i></button>
-      </div>
-      <div class="etc-login-form">
-        <p>already have an account?<%= link_to "Click Here", new_user_session_path%></p>
-      </div>
-    <% end %>  
-  </div>
-  <!-- end:Main Form -->
+      <!-- end:Main Form -->
+    </div>
+  </div>  
 </div>
 <style type="text/css">
 .sign_up{
@@ -57,4 +61,17 @@
 .etc-login-form{
   color: #000;
 }
+.signinbg{
+  margin-top: 136px;
+  height: 489px;
+  width: 656px;
+}
+.login-form-1{
+  border: 2px solid #ddd;
+  width: 100%;
+  max-width: 100%;
+}
+.login-form-1 .form-group {
+    border-bottom: 2px solid #efefef !important;
+  }
 </style>    

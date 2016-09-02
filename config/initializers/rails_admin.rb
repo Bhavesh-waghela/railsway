@@ -61,4 +61,22 @@ RailsAdmin.config do |config|
       fields :created_at 
     end
   end
+
+  config.model 'Solution' do
+   list do
+    field :question
+    field :answer
+    field :tag_list
+   end
+
+    edit do
+      field :question
+      field :answer
+      field :tag_list do
+        html_attributes do
+          {:style => "width:90%"}
+        end
+      end
+    end
+  end
 end

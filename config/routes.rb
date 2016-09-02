@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-
+  get 'tags/:tag', to: 'solutions#index', as: :tag
   get 'votes/index'
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users 
