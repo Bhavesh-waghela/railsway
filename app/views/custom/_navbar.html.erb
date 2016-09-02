@@ -1,10 +1,10 @@
-<nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+<nav class="navbar navbar-custom <%= current_page?('/') ? '' : 'navbar-railsway' %> navbar-fixed-top" role="navigation">
     <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
                 Menu <i class="fa fa-bars"></i>
             </button>
-            <a class="navbar-brand page-scroll" href="http://localhost:3000/">
+            <a class="navbar-brand page-scroll" href="<%= root_path %>">
                 <i class="fa fa-play-circle"></i> <span class="light">Rails</span> Way
             </a>
         </div>
@@ -36,7 +36,5 @@
                 <% end %>
             </ul>
         </div>
-        <!-- /.navbar-collapse -->
     </div>
-    <!-- /.container -->
 </nav>

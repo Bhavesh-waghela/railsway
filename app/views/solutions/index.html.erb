@@ -1,28 +1,35 @@
-<%= render "/custom/form.html.erb"%>
-<div class="row">
-  <div class="col-md-9 col-md-offset-1">
-    <div class="tag_cloud" style="margin-top: 150px">
+<div class="row" style="padding: 0 50px;">
+  <div class="col-md-12">
+    <div class="col-md-8">
+      <div class="solutions" style="margin-top: 126px; ">
+        <% @solutions.each do |solution|%>
+          <div class="card">
+            <p>
+              <small class="total_votes">
+                <%= solution.votes.count%>
+              </small>
+              <%= link_to solution.question , solution_path(solution) %>
+              <br>
+              <span class="descriptive-text">
+                <%= truncate solution.answer %>
+              </span>
+            </p>
+            <p class="other-action">
+              <%= link_to "read more" , solution_path(solution), class: "read-more" %>
+              <span class="tags">
+                Tags: <%= raw solution.tags.map(&:name).map { |t| link_to t, tag_path(t) }.join(', ') %>
+              </span>
+            </p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="tag_cloud" style="margin-top: 150px">
         <% tag_cloud Solution.tag_counts, %w[s m l] do |tag, css_class| %>
           <%= link_to tag.name, tag_path(tag.name), class: css_class %>
         <% end %>
-    </div>
-    <div class="solutions" style="margin-top: 126px; ">
-      <%  @solutions.each do |solution|%>
-        <div>
-         Tags: <%= raw solution.tags.map(&:name).map { |t| link_to t, tag_path(t) }.join(', ') %>
-          <p>
-            <small class="total_votes">
-              <%= solution.votes.count%>
-            </small>
-            <%= link_to solution.question , solution_path(solution) %>
-          </p>
-          <p>
-            <%= truncate solution.answer %>
-            <br>
-            <%= link_to "read more" , solution_path(solution) %>
-          </p>
-        </div>
-      <% end %>
+      </div>
     </div>
   </div>
 </div>
