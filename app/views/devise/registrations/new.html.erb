@@ -11,7 +11,7 @@
             <div class="main-login-form">
               <div class="login-group">
                 <div class="form-group">
-                  <label for="reg_username" class="sr-only">Name</label>
+                <%#= f.label :name%>
                   <%= f.text_field :name, autofocus: true , placeholder: "username" , id: "reg_username" , class: "form-control"%>
                 </div>
                 <div class="form-group">
@@ -20,11 +20,7 @@
                 </div>
                 <div class="form-group">
                     <%= f.password_field :password, autocomplete: "off" , placeholder: "Password", id: "reg_password" , class: "form-control" %>
-                  <label for="reg_password" class="sr-only">Contraseña</label>
                 </div>
-                  <% if @minimum_password_length %>
-                    <em>(<%= @minimum_password_length %> characters minimum)</em>
-                  <% end %><br />
                 <div class="form-group">
                   <label for="reg_password_confirm" class="sr-only">Password Confirm</label>
                   <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "confirm password" , id: "reg_password_confirm" , class: "form-control"%>
@@ -42,7 +38,7 @@
                   <label for="reg_agree">i agree with <a href="#">terms</a></label>
                 </div>
               </div>
-              <button type="submit" class="login-button" style="margin-top: -18px"><i class="fa fa-chevron-right"></i></button>
+              <button type="submit" class="login-button" style="margin-top: -11px"><i class="fa fa-chevron-right"></i></button>
             </div>
             <div class="etc-login-form">
               <p>Already have an account?<%= link_to "Click Here", new_user_session_path%></p>

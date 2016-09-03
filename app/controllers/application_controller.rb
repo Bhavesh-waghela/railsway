@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :null_session, if: Proc.new { |c| c.request.format == 'application/json' }
   respond_to :html, :json
   use_growlyflash
+  before_action :configure_permitted_parameters, if: :devise_controller?
 
   def after_sign_in_path_for(resource)
     if current_user.admin?
@@ -33,5 +34,9 @@ class ApplicationController < ActionController::Base
   def tokenized_user_identifier
     # Customize this based on Simple Token Authentication settings
     request.headers['X-User-Email'] || params[:user_email]
+  end
+
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
   end
 end

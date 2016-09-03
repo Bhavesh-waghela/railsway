@@ -1,15 +1,30 @@
-<div class="Tutorials" style="padding: 113px;">
-  <h3 class="post-title">
-    <%= @tutorial.title %>
-  </h3>
-  <h4 class="post-subtitle">
-    <%= @tutorial.description%><br>
-    <%= @tutorial.position %>
-  </h4>
-</div> 
-
-<footer>
-  <div class="container text-center">
-    <p>Copyright &copy; RailsWay 2016</p>
+<section>
+  <div class="row">
+    <div class="solutions" style="padding-top: 125px; padding-left: 112px;">
+     <h6 class="post-title">
+      <p><%= @tutorial.title %></p>
+     </h6>
+       <p class="post-subtitle">
+        <%= @tutorial.description%><br />
+        <span class="position" style="color: #555"> Position: <%= @tutorial.position %><span>
+       </p>
+    </div>  
   </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <div class="container text-center">
+        <p>Copyright &copy; RailsWay 2016</p>
+    </div>
 </footer>
+
+<style type="text/css">
+.intro {
+    background: url(/assets/show-posts.jpg);
+  }
+.solutions{
+  width: 1150px;
+  word-wrap: break-word;
+}  
+</style>  

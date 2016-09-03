@@ -19,7 +19,7 @@ class UsersController < ApplicationController
   end
 
   def create
-  	@user = User.create(name: params[:name])
+  	@user = User.create(user_params)
 
   	respond_to do |format|
       format.html {redirect_to root_path }
@@ -32,7 +32,7 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    if @user.update_attributes(name: params[:name])
+    if @user.update_attributes(user_params)
       redirect_to root_path, :notice => "User updated."
     else
       redirect_to root_path, :alert => "Unable to update user."
@@ -55,5 +55,8 @@ class UsersController < ApplicationController
 
   def secure_params
     params.require(:user).permit(:role)
+  end
+  def user_params
+    params.require(:user).permit(:name)
   end
 end
