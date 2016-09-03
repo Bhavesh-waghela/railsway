@@ -13,3 +13,14 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+//= require growlyflash
+Growlyflash.defaults = $.extend(true, Growlyflash.defaults, {
+  align: 'right',
+  delay: 4000,
+  dismiss: true,
+  spacing: 10,
+  target: 'body',
+  title: false,
+  type: null,
+  "class": ['alert', 'growlyflash', 'fade', 'rw-alert']
+});

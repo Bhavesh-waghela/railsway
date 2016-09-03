@@ -13,6 +13,7 @@
  *= require_tree .
  *= require_self
  */
+ @import "growlyflash";
 .well {
     min-height: 20px;
     padding: 19px;
@@ -88,4 +89,12 @@
 }
 .content-section {
     padding-top: 150px;
+}
+.growlyflash{
+    color: #000;
+}
+.rw-alert{
+    background: rgb(164, 52, 51);
+    color: #fff;
+    width: 300px !important;
 }

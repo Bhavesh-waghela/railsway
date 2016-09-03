@@ -18,20 +18,32 @@
       </div>
     </div>
   </div>
-              
-  <div class="tutorials" style="padding-left: 113px;">
-      <%  @tutorials.each do |tutorails|%>
-          <h3 class="post-title">
-              <%= link_to tutorails.title , tutorial_path(tutorails)%>
-          </h3>
-          <h4 class="post-subtitle">
-              <%= tutorails.description%><br>
-              <%= tutorails.position%>
-            <hr>
-          </h4>
-     <% end %> 
-  </div>   
-</div>
+
+<div class="row" style="padding: 0 50px;">
+  <div class="col-md-12">
+      <div class="col-md-8">
+        <div class="solutions" style="margin-top: 126px; ">
+          <%  @tutorials.each do |tutorails|%>
+            <div class="card">
+              <p>
+                <span class="total_votes">
+                 0
+                </span>
+                <%= link_to tutorails.title , tutorial_path(tutorails)%>
+                <br>
+                <span class="descriptive-text">
+                  <%= truncate tutorails.description%><br>
+                </span>
+              </p>
+              <p class="other-action">
+                <%= link_to "read more" , tutorial_path(tutorails), class: "read-more" %>
+              </p>
+            </div>
+          <% end %>
+        </div>  
+      </div>
+    </div>  
+  </div>
 <!-- Footer -->
 <footer>
     <div class="container text-center">

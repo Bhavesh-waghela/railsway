@@ -6,17 +6,20 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= growlyflash_static_notices %>
+
   </head>
 
   <body class="<%= content_for :body_class %>">
-    <%if flash[:notice]%>
-      <p class="notice" style="text-align: center;"><%= notice %></p>
-      <p class="alert" style="text-align: center;"><%= alert %></p>
-    <% end %>
-
+  
+    
+    <%#= render "toastr_rails/flash"%>
     <%= render "/custom/navbar.html.erb"%>
     <%= yield %>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+    <script type="text/javascript">
+      
+    </script>
   </body>
 </html>
