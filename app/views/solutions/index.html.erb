@@ -17,7 +17,7 @@
             <p class="other-action">
               <%= link_to "read more" , solution_path(solution), class: "read-more" %>
               <span class="tags">
-                Tags: <%= raw solution.tags.map(&:name).map { |t| link_to t, tag_path(t) }.join(', ') %>
+                Tags: <%= raw solution.tags.map(&:name).map { |t| link_to t, tag_path(t) }.join('') %>
               </span>
             </p>
           </div>
