@@ -6,18 +6,21 @@
         <div class="well">
             <h4>Search Tutorials</h4>
             <div class="input-group">
-                <input type="text" class="form-control">
-                <span class="input-group-btn">
-                    <button class="btn btn-default" type="button">
+                <%= form_tag tutorials_path, :method => 'get' do %>
+                      <p>
+                        <%= text_field_tag :title, params[:title] %>
+                      </p>
+                    <span class="input-group-btn">
+                        <%= submit_tag "Search",class: "btn btn-default" , :title => nil%>
                         <span class="glyphicon glyphicon-search"></span>
-                </button>
-                </span>
-             </div>
+                    </span>
+                <% end %>
+            </div>
              <!-- /.input-group -->
-          </div>
-      </div>
+        </div>
     </div>
   </div>
+</div>
 
 <div class="row" style="padding: 0 50px;">
   <div class="col-md-12">

@@ -1,8 +1,12 @@
 class TutorialsController < ApplicationController
 
   def index
-  	@tutorials = Tutorial.all
-
+     @tutorials = Tutorial.all
+    if params[:title]
+     @tutorials = Tutorial.search(params[:title])
+    else
+     @tutorials = Tutorial.all
+    end
     respond_to do |format|
      format.html 
      format.json 
