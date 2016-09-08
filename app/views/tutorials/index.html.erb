@@ -1,52 +1,84 @@
 <div class="main-content">
   <div class="row">
-    <div class="col-lg-8">
-     <div class="col-md-6 col-md-8">
-       <!-- Blog Search Well -->
-        <div class="well">
-            <h4>Search Tutorials</h4>
-            <div class="input-group">
-                <%= form_tag tutorials_path, :method => 'get' do %>
-                      <p>
-                        <%= text_field_tag :title, params[:title] %>
-                      </p>
-                    <span class="input-group-btn">
-                        <%= submit_tag "Search",class: "btn btn-default" , :title => nil%>
-                        <span class="glyphicon glyphicon-search"></span>
-                    </span>
-                <% end %>
-            </div>
-             <!-- /.input-group -->
+    <div class="col-md-8">
+      <div class="solutions" style="margin-top: 80px;">
+        <%  @tutorials.each do |tutorails|%>
+          <div class="card">
+            <p>
+              <span class="total_votes">
+               0
+              </span>
+              <%= link_to tutorails.title , tutorial_path(tutorails)%>
+              <br>
+              <span class="descriptive-text">
+                <%= truncate tutorails.description%><br>
+              </span>
+            </p>
+            <p class="other-action">
+              <%= link_to "read more" , tutorial_path(tutorails), class: "read-more" %>
+            </p>
+          </div>
+        <% end %>
+      </div> 
+    </div>
+    <div class="col-md-4">
+      <div class="well">
+        <h4>Search Tutorials</h4>
+        <div class="input-group">
+          <%= form_tag tutorials_path, :method => 'get' do %>
+            <p>
+              <%= text_field_tag :title, params[:title] %>
+            </p>
+            <span class="input-group-btn">
+                <%= submit_tag "Search",class: "btn btn-default" , :title => nil%>
+                <span class="glyphicon glyphicon-search"></span>
+            </span>
+          <% end %>
         </div>
+      </div>
     </div>
   </div>
 </div>
 
-<div class="row" style="padding: 0 50px;">
-  <div class="col-md-12">
-      <div class="col-md-8">
-        <div class="solutions" style="margin-top: 126px; ">
-          <%  @tutorials.each do |tutorails|%>
-            <div class="card">
-              <p>
-                <span class="total_votes">
-                 0
-                </span>
-                <%= link_to tutorails.title , tutorial_path(tutorails)%>
-                <br>
-                <span class="descriptive-text">
-                  <%= truncate tutorails.description%><br>
-                </span>
-              </p>
-              <p class="other-action">
-                <%= link_to "read more" , tutorial_path(tutorails), class: "read-more" %>
-              </p>
-            </div>
-          <% end %>
-        </div>  
-      </div>
-    </div>  
-  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <!-- Footer -->
 <footer>
     <div class="container text-center">

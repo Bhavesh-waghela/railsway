@@ -13,19 +13,12 @@
  *= require_tree .
  *= require_self
  */
- @import "growlyflash";
-.well {
-    min-height: 20px;
-    padding: 19px;
-    position: relative;
-    top: 100px;
-    left: 800px;
-    margin-bottom: 20px;
-    background-color: rgba(0, 0, 0, .075);
-    border: 1px solid #e3e3e3;
-    border-radius: 4px;
-    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.05);
-    box-shadow: inset 0 1px 1px rgba(0,0,0,.05);
+@import "growlyflash";
+.main-content {
+  padding: 25px 50px;
+}
+.main-content .well {
+    margin-top: 80px;
 }
 .navbar-custom {
   background: rgba(255, 255, 255, 0.6);
