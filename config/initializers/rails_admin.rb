@@ -58,7 +58,16 @@ RailsAdmin.config do |config|
       field :id
       field :title
       field :description
-      fields :created_at 
+      field :created_at 
+    end
+
+    edit do
+      field :title
+      field :description, :wysihtml5 do
+        config_options toolbar: { fa: true }, # use font-awesome instead of glyphicon
+               html: true, # enables html editor
+               parserRules: { tags: { p:1 } } # support for <p> in html mode
+      end
     end
   end
 
@@ -71,7 +80,11 @@ RailsAdmin.config do |config|
 
     edit do
       field :question
-      field :answer
+      field :answer, :wysihtml5 do
+         config_options toolbar: { fa: true }, # use font-awesome instead of glyphicon
+                 html: true, # enables html editor
+                 parserRules: { tags: { p:1 } } # support for <p> in html mode
+      end
       field :tag_list do
         html_attributes do
           {:style => "width:90%"}
@@ -80,3 +93,5 @@ RailsAdmin.config do |config|
     end
   end
 end
+
+  

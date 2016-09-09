@@ -5,7 +5,7 @@
       <p><%= @tutorial.title %></p>
      </h6>
        <p class="post-subtitle">
-        <%= @tutorial.description%><br />
+        <%= @tutorial.description.html_safe %><br />
         <span class="position" style="color: #555"> Position: <%= @tutorial.position %><span>
        </p>
     </div>  
