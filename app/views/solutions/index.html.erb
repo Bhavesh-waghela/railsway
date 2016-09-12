@@ -4,22 +4,29 @@
       <div class="solutions" style="margin-top: 126px; ">
         <% @solutions.each do |solution|%>
           <div class="card">
-            <p>
-              <small class="total_votes">
-                <%= solution.votes.count%>
-              </small>
-              <%= link_to solution.question , solution_path(solution) %>
-              <br>
-              <span class="descriptive-text">
-                <%= truncate solution.answer %>
-              </span>
-            </p>
-            <p class="other-action">
-              <%= link_to "read more" , solution_path(solution), class: "read-more" %>
-              <span class="tags">
-                Tags: <%= raw solution.tags.map(&:name).map { |t| link_to t, tag_path(t) }.join('') %>
-              </span>
-            </p>
+          <div class="login-form-main-message"></div>
+              <p>
+                <small class="total_votes">
+                  <%= solution.votes.count%>
+                <% if current_user %>
+                      <%= form_for solution.votes.new do |f| %>
+                         <%= f.hidden_field :solution_id %>
+                         <%= f.submit '▲'%>
+                      <% end %> 
+                <% end %> 
+                </small>
+                <%= link_to solution.question , solution_path(solution) %>
+                <br>
+                <span class="descriptive-text">
+                  <%= truncate solution.answer %>
+                </span>
+              </p>
+              <p class="other-action">
+                <%= link_to "read more" , solution_path(solution), class: "read-more" %>
+                <span class="tags">
+                  Tags: <%= raw solution.tags.map(&:name).map { |t| link_to t, tag_path(t) }.join('') %>
+                </span>
+              </p>
           </div>
         <% end %>
       </div>

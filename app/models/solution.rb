@@ -10,4 +10,9 @@ class Solution < ApplicationRecord
         created_at: self.created_at
       }
   end
+
+   def self.sort_by_votes
+    sorted_votes = Solution.all.sort_by { |solution| solution.votes.count }
+    sorted_votes.reverse
+  end
 end

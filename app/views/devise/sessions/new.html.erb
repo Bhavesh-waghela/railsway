@@ -1,6 +1,9 @@
 <% content_for :body_class, "sign_in" %>
 <div class="row">
-  <div class="col-md-4 col-md-offset-4 signinbg">
+  <div class="col-md-6">
+  <img src="http://media.gettyimages.com/videos/white-blue-and-red-spinning-diamond-video-id146440926?s=640x640" style="padding-top: 150px">
+  </div>
+  <div class="col-md-6 signinbg">
     <div class="logo">Login</div>
     <div class="login-form-1">
       <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {  id: "login-form", class: "text-left" }) do |f| %>
@@ -28,6 +31,9 @@
 </div>
 
 <style type="text/css">
+body {
+  background: #000 !important;
+}
   .login-form-1 {
     border: 2px solid #ddd;
     width: 100%;
@@ -53,6 +59,6 @@
   }
   ::-webkit-input-placeholder { /* WebKit browsers */
     color:    red;
-     opacity: 1 !important;
+    opacity: 1 !important;
 }
 </style>

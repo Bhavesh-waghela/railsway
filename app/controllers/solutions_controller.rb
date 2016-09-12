@@ -3,13 +3,12 @@ class SolutionsController < ApplicationController
     if params[:tag]
        @solutions = Solution.tagged_with(params[:tag])
     else
-      @solutions = Solution.all
-     @solutions.each do |solution|
-       solution.votes
-     end
+      @solutions = Solution.order('created_at DESC')
+      @solutions.each do |solution|
+        solution.votes
+      end
     end
-    
-  	respond_to do |format|
+    respond_to do |format|
      format.html 
      format.json 
     end 
