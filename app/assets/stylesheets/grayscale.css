@@ -8,7 +8,7 @@ body {
   height: 100%;
   font-family: "Lora", "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #000;
-  background-color: #fff;
+  background-color: #F0F2F5;
 }
 html {
   width: 100%;
@@ -84,7 +84,7 @@ a:focus {
   transition: background 0.3s ease-in-out;
 }
 .navbar-custom .nav li a:hover {
-  color: rgb(164, 52, 51);
+  color: rgb(43, 62, 80);
   outline: none;
   background-color: transparent;
 }

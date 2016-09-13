@@ -1,16 +1,15 @@
 class UsersController < ApplicationController
   #before_filter :admin_only
-  
   def index
-  	@users = User.all
+    @users = User.all
   end
   def new
-  	@user = User.new
+    @user = User.new
   end
 
   def show
     @user = User.find(params[:id])
-  	unless current_user.admin?
+    unless current_user.admin?
       unless @user == current_user
         redirect_to :back, :alert => "Access denied."
       end
@@ -19,12 +18,12 @@ class UsersController < ApplicationController
   end
 
   def create
-  	@user = User.create(user_params)
+    @user = User.create(user_params)
 
-  	respond_to do |format|
+    respond_to do |format|
       format.html {redirect_to root_path }
-  		format.json { render :json }
-  	end	
+      format.json { render :json }
+    end 
   end
 
   def edit
@@ -45,6 +44,8 @@ class UsersController < ApplicationController
     redirect_to root_path, :notice => "User deleted."
   end
 
+  def user_start
+  end
   private
 
   def admin_only

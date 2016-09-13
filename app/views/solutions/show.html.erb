@@ -8,7 +8,10 @@
       <p><%= @solution.answer%></p></h8>
       <p>Votes: <%= @solution.votes.count %></p> 
       Tags: <%= raw @solution.tags.map(&:name).map { |t| link_to t, tag_path(t) }.join(', ') %>
-    </div>  
+    </div> 
+  </div>
+  <div class="disqus-adjustment" style="padding-left: 105px; padding-right: 105px; margin-top: 50px;">
+    <%= render 'disqus'%> 
   </div>
 </section>
 

@@ -26,7 +26,7 @@
 
 .navbar-custom.top-nav-collapse {
 	color: #fff;
-    background: #a43433;
+    background: #2b3e50;
 }
 .navbar-custom.top-nav-collapse .navbar-header a,
 .navbar-custom.top-nav-collapse .nav.navbar-nav li a {
@@ -37,8 +37,8 @@
 	color: #000;
 }
 .btn-default {
-	border: 1px solid #a43433;
-	color: #a43433;
+	border: 1px solid #2b3e50;
+	color: #2b3e50;
 }
 .btn-default:hover, 
 .btn-default:focus {
@@ -56,11 +56,11 @@
     margin-right: 15px;
 }
 .card {
-    background: #ddd;
+    background: #ffffff;
     padding: 20px;
     margin-bottom: 20px;
-    box-shadow: 10px 10px 5px #888888;
-    border-radius: 10px;
+    box-shadow: 5px 5px 10px rgba(27, 25, 19, 0.24);
+    border-radius: 0px;
 }
 .card .read-more {
     float: right;
@@ -74,7 +74,7 @@
     font-size: 15px;
 }
 .navbar-railsway {
-    background: rgb(164, 52, 51);
+    background: #2b3e50;
 }
 .navbar-railsway .navbar-header a,
 .navbar-railsway .nav.navbar-nav li a {
@@ -87,7 +87,7 @@
     color: #000;
 }
 .rw-alert{
-    background: rgb(164, 52, 51);
+    background: #2b3e50;
     color: #fff;
     width: 300px !important;
 }
@@ -98,7 +98,7 @@
     margin-right: 5px;
 }
 .tags a:hover {
-    background: rgb(164, 52, 51);
+    background: #2b3e50;
     padding: 8px 12px;
     color: #fff;
     font-weight: bold;

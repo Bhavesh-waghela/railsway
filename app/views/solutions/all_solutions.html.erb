@@ -2,21 +2,20 @@
   <div class="col-md-12">
     <div class="col-md-7">
       <div class="solutions" style="margin-top: 126px; ">
-        <% @solutions.limit(3).order('created_at DESC').each  do |solution|%>
+        <% @solutions.each  do |solution|%>
           <div class="card">
           <div class="login-form-main-message"></div>
               <p>
                 <small class="total_votes">
                   <%= solution.votes.count%>
-                <% if current_user %>
+                  <% if current_user %>
                       <%= form_for solution.votes.new do |f| %>
                          <%= f.hidden_field :solution_id %>
                          <i class="fa fa-thumbs-up" aria-hidden="true"></i>
-                         <%#= f.submit "", class: "fa fa-heart"%>
+                         <%#= f.submit "", class: "fa fa-heart" %>
                       <% end %> 
-                <% end %> 
-                </small>
-                <p>
+                  <% end %> 
+                </small><p>
                 <%= link_to solution.question , solution_path(solution) %></p>
                 <br>
                 <span class="descriptive-text">
@@ -31,8 +30,6 @@
               </p>
           </div>
         <% end %>
-        <div class="all_solutions" style="text-align: center; font-size: 21px;">
-        <%= link_to "All Solutions", all_solutions_path %></div>
       </div>
     </div>
     <div class="col-md-5">

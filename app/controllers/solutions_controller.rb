@@ -1,9 +1,14 @@
 class SolutionsController < ApplicationController
+  
+  def all_solutions
+    @solutions = Solution.all
+  end
+
   def index
     if params[:tag]
        @solutions = Solution.tagged_with(params[:tag])
     else
-      @solutions = Solution.order('created_at DESC')
+      @solutions = Solution.all
       @solutions.each do |solution|
         solution.votes
       end
@@ -15,15 +20,15 @@ class SolutionsController < ApplicationController
   end
 
   def new
-  	@solution = Solution.new
+    @solution = Solution.new
   end
 
   def create
-  	@solution = Solution.create(user_params)
+    @solution = Solution.create(user_params)
     respond_to do |format|
      format.html 
      format.json 
-    end	
+    end 
   end
 
   def edit
