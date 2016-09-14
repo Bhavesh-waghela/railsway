@@ -16,6 +16,7 @@ gem 'simple_token_authentication', '~> 1.0' # see semver.org
 gem 'remotipart', github: 'mshibuya/remotipart'
 gem 'rails_admin', '>= 1.0.0.rc'
 gem 'acts-as-taggable-on'
+gem 'kaminari'
 gem 'growlyflash'
 # Use Puma as the app server
 gem 'puma', '~> 3.0'

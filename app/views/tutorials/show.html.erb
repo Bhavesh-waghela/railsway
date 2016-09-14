@@ -1,10 +1,11 @@
 <section>
   <div class="row">
-    <div class="solutions" style="padding-top: 125px; padding-left: 112px;">
+    <div class="tutorials" style="padding-top: 125px; padding-left: 112px;">
      <h6 class="post-title">
       <p><%= @tutorial.title %></p>
      </h6>
        <p class="post-subtitle">
+        <span class="post-answer-custom-styling">
         <%= @tutorial.description.html_safe %><br />
         <span class="position" style="color: #555"> Position: <%= @tutorial.position %><span>
        </p>
@@ -23,8 +24,11 @@
 .intro {
     background: url(/assets/show-posts.jpg);
   }
-.solutions{
+.tutorials{
   width: 1150px;
   word-wrap: break-word;
 }  
+.post-answer-custom-styling img {
+  height: 500px !important;
+}
 </style>  

@@ -6,9 +6,9 @@ class SolutionsController < ApplicationController
 
   def index
     if params[:tag]
-       @solutions = Solution.tagged_with(params[:tag])
+       @solutions = Solution.tagged_with(params[:tag]).page params[:page]
     else
-      @solutions = Solution.all
+      @solutions = Solution.page params[:page]
       @solutions.each do |solution|
         solution.votes
       end

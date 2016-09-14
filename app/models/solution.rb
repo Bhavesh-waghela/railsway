@@ -1,6 +1,7 @@
 class Solution < ApplicationRecord
     has_many :votes
     acts_as_taggable
+    paginates_per 1
     
   def as_json(options = {})
      {

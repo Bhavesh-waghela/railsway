@@ -27,6 +27,7 @@
 .navbar-custom.top-nav-collapse {
 	color: #fff;
     background: #2b3e50;
+    box-shadow: 5px 5px 10px rgba(27, 25, 19, 0.24);
 }
 .navbar-custom.top-nav-collapse .navbar-header a,
 .navbar-custom.top-nav-collapse .nav.navbar-nav li a {
@@ -62,6 +63,10 @@
     box-shadow: 5px 5px 10px rgba(27, 25, 19, 0.24);
     border-radius: 0px;
 }
+.card:hover {
+    padding:25px;
+    box-shadow: 5px 5px 10px rgba(27, 25, 19, 0.50);
+}
 .card .read-more {
     float: right;
     font-size: 15px;
@@ -75,6 +80,7 @@
 }
 .navbar-railsway {
     background: #2b3e50;
+    box-shadow: 5px 5px 10px rgba(27, 25, 19, 0.24);
 }
 .navbar-railsway .navbar-header a,
 .navbar-railsway .nav.navbar-nav li a {

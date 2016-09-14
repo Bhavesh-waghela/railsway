@@ -1,7 +1,7 @@
 <div class="row" style="padding: 0 50px;">
   <div class="col-md-12">
     <div class="col-md-7">
-      <div class="solutions" style="margin-top: 126px; ">
+      <div id="solutions" class="solutions" style="margin-top: 126px; ">
         <% @solutions.limit(3).order('created_at DESC').each  do |solution|%>
           <div class="card">
           <div class="login-form-main-message"></div>
@@ -33,6 +33,7 @@
         <% end %>
         <div class="all_solutions" style="text-align: center; font-size: 21px;">
         <%= link_to "All Solutions", all_solutions_path %></div>
+        <%= paginate @solutions %>
       </div>
     </div>
     <div class="col-md-5">

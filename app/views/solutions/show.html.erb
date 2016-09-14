@@ -1,11 +1,12 @@
 <section>
   <div class="row">
-    <div class="solutions" style="padding-top: 125px; padding-left: 112px;">
+    <div class="solutions-show" style="padding-top: 125px; padding-left: 112px;">
      <h6 class="post-title">
       <p><%= @solution.question %></p>
      </h6>
      <h8 class="post-subtitle">
-      <p><%= @solution.answer%></p></h8>
+      <span id="post-answer" class="post-answer-custom-styling">
+      <p><%= @solution.answer.html_safe %></p></h8></span>
       <p>Votes: <%= @solution.votes.count %></p> 
       Tags: <%= raw @solution.tags.map(&:name).map { |t| link_to t, tag_path(t) }.join(', ') %>
     </div> 
@@ -26,8 +27,11 @@
 .intro {
     background: url(/assets/show-posts.jpg);
   }
-.solutions{
+.solutions-show{
   width: 1150px;
   word-wrap: break-word;
 }  
+.post-answer-custom-styling img {
+  height: 500px !important;
+}
 </style>  
