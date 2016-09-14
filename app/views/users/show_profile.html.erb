@@ -1,0 +1,18 @@
+<div class="row" style="padding-top: 150px;">
+  <div class="col-md-8 col-md-offset-4">
+    <div class="show-profile" id="solutions">
+          <% if @user != nil %>
+            <%= @user.name%>
+          <% else %>
+            <%= "No User Found"%> 
+          <% end %>
+    </div>
+  </div>
+</div>
+
+
+<footer>
+    <div class="container text-center">
+        <p>Copyright &copy; RailsWay 2016</p>
+    </div>
+</footer>

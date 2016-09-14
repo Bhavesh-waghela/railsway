@@ -54,7 +54,8 @@
     color: #fff;
     font-size: 15px;
     font-weight: 800;
-    margin-right: 15px;
+    margin-bottom: 0;
+    text-align: center;
 }
 .card {
     background: #ffffff;
@@ -63,16 +64,24 @@
     box-shadow: 5px 5px 10px rgba(27, 25, 19, 0.24);
     border-radius: 0px;
 }
-.card:hover {
-    padding:25px;
-    box-shadow: 5px 5px 10px rgba(27, 25, 19, 0.50);
-}
 .card .read-more {
     float: right;
     font-size: 15px;
 }
+.card .sol-title {
+    font-size: 20px;
+    text-transform: capitalize;
+}
+.descriptive-text img {
+    width: 100%;
+}
+.card .descriptive-text {
+    font-size: 17px;
+    margin-top: 20px;
+    float: left;
+}
 .card .descriptive-text, .card .tags {
-    margin-left: 45px;
+    margin-left: 90px;
 }
 .card .other-action {
     margin-bottom: 0;
@@ -104,8 +113,31 @@
     margin-right: 5px;
 }
 .tags a:hover {
-    background: #2b3e50;
-    padding: 8px 12px;
+    background: #999;
     color: #fff;
-    font-weight: bold;
+}
+.tag_cloud {
+    width: 100%;
+}
+.solutions-show {
+    text-align: center;
+}
+.post-title {
+    font-size: 35px;
+    margin-top: 20px;
+}
+#solution, #disqs-solution {
+    background: #fff;
+    margin-top: 150px;
+    box-shadow: 5px 5px 10px rgba(27, 25, 19, 0.24);
+}
+#disqs-solution {
+    margin-top: 50px;
+    padding: 50px;
+}
+.profile-editing { 
+  text-align: center;
+}
+.link-delete {
+    font-size: 20px;
 }

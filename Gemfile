@@ -18,6 +18,7 @@ gem 'rails_admin', '>= 1.0.0.rc'
 gem 'acts-as-taggable-on'
 gem 'kaminari'
 gem 'growlyflash'
+gem 'friendly_id', '~> 5.1.0'
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets

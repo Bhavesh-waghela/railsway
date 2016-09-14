@@ -1,0 +1,7 @@
+<% if current_user %>
+  <%= form_for solution.votes.new do |f| %>
+    <%= f.hidden_field :solution_id %>
+    <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+    <%#= f.submit "", class: "fa fa-heart"%>
+  <% end %> 
+<% end %> 

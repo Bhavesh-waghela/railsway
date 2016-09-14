@@ -36,7 +36,7 @@ class SolutionsController < ApplicationController
   end
 
   def show
-    @solution = Solution.find(params[:id])
+    @solution = Solution.friendly.find(params[:id])
     respond_to do |format|
      format.html 
      format.json 

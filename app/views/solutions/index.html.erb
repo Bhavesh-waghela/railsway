@@ -1,34 +1,27 @@
 <div class="row" style="padding: 0 50px;">
   <div class="col-md-12">
-    <div class="col-md-7">
+    <div class="col-md-9">
       <div id="solutions" class="solutions" style="margin-top: 126px; ">
         <% @solutions.limit(3).order('created_at DESC').each  do |solution|%>
           <div class="card">
-          <div class="login-form-main-message"></div>
-              <p>
-                <small class="total_votes">
-                  <%= solution.votes.count%>
-                <% if current_user %>
-                      <%= form_for solution.votes.new do |f| %>
-                         <%= f.hidden_field :solution_id %>
-                         <i class="fa fa-thumbs-up" aria-hidden="true"></i>
-                         <%#= f.submit "", class: "fa fa-heart"%>
-                      <% end %> 
-                <% end %> 
-                </small>
-                <p>
-                <%= link_to solution.question , solution_path(solution) %></p>
-                <br>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="col-md-1">
+                  <h4 class="total_votes">
+                    <%= solution.votes.count%>
+                  </h4>
+                </div>
+                <div class="col-md-11">
+                  <%= link_to solution.question , solution_path(solution), class: "sol-title" %>
+                </div>
+              </div>
+              <div class="col-md-12">
                 <span class="descriptive-text">
-                  <%= truncate solution.answer %>
+                  <%= truncate solution.answer.html_safe, length: 300 %>
                 </span>
-              </p>
-              <p class="other-action">
-                <%= link_to "read more" , solution_path(solution), class: "read-more" %>
-                <span class="tags">
-                  Tags: <%= raw solution.tags.map(&:name).map { |t| link_to t, tag_path(t) }.join('') %>
-                </span>
-              </p>
+              </div>
+            </div>
+            
           </div>
         <% end %>
         <div class="all_solutions" style="text-align: center; font-size: 21px;">
@@ -36,7 +29,7 @@
         <%= paginate @solutions %>
       </div>
     </div>
-    <div class="col-md-5">
+    <div class="col-md-3">
       <div class="card" style="margin-top: 126px;"><span class="tag-font-size" style="font-size: 20px;">Tags:</span>
         <div class="tag_cloud" >
           <% tag_cloud Solution.tag_counts, %w[s m l] do |tag, css_class| %>

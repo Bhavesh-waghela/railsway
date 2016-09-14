@@ -1,26 +1,34 @@
 <section>
   <div class="row">
-    <div class="solutions-show" style="padding-top: 125px; padding-left: 112px;">
-     <h6 class="post-title">
-      <p><%= @solution.question %></p>
-     </h6>
-     <h8 class="post-subtitle">
-      <span id="post-answer" class="post-answer-custom-styling">
-      <p><%= @solution.answer.html_safe %></p></h8></span>
-      <p>Votes: <%= @solution.votes.count %></p> 
+    <div class="col-md-8 col-md-offset-2" id="solution">
+      <h6 class="post-title">
+        <%= @solution.question %>
+       </h6>
+      <p class="post-subtitle">
+        <span id="post-answer" class="post-answer-custom-styling">
+          <%= @solution.answer.html_safe %>
+        </span>
+      </p>
+      <p>
+        Votes: <%= @solution.votes.count %>
+      </p> 
       Tags: <%= raw @solution.tags.map(&:name).map { |t| link_to t, tag_path(t) }.join(', ') %>
-    </div> 
-  </div>
-  <div class="disqus-adjustment" style="padding-left: 105px; padding-right: 105px; margin-top: 50px;">
-    <%= render 'disqus'%> 
+      
+    </div>
   </div>
 </section>
-
-<!-- Footer -->
-<footer>
-    <div class="container text-center">
-        <p>Copyright &copy; RailsWay 2016</p>
+<div class="row">
+  <div class="col-md-8 col-md-offset-2" id="disqs-solution">
+    <div class="disqus-adjustment">
+      <%= render 'disqus'%> 
     </div>
+  </div>
+</div>
+
+<footer>
+  <div class="container text-center">
+    <p>Copyright &copy; RailsWay 2016</p>
+  </div>
 </footer>
 
 <style type="text/css">

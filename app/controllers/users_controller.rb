@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-  #before_filter :admin_only
   def index
     @users = User.all
   end
@@ -24,6 +23,10 @@ class UsersController < ApplicationController
       format.html {redirect_to root_path }
       format.json { render :json }
     end 
+  end
+
+  def show_profile
+    @user = User.find_by_name(params[:username])
   end
 
   def edit

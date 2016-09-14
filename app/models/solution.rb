@@ -2,6 +2,8 @@ class Solution < ApplicationRecord
     has_many :votes
     acts_as_taggable
     paginates_per 1
+    extend FriendlyId
+    friendly_id :question
     
   def as_json(options = {})
      {
