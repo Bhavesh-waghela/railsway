@@ -8,41 +8,47 @@
                 <i class="fa fa-play-circle"></i> <span class="light">Rails</span> Way
             </a>
         </div>
-
+        
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
             <ul class="nav navbar-nav">
-                <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+                <li>
+                  <div class="input-group-username">
+                    <%= form_tag search_users_path, method: :get do %>
+                      <%= text_field_tag :name, '', value: params[:name] %>
+                    <% end %>
+                  </div>
+                </li>
                 <li class="hidden">
                     <a href="#page-top"></a>
                 </li> 
-                    <li>
-                      <%#= link_to "Tutorials" , tutorials_path %> 
-                    </li>
-                    <li>
-                      <%= link_to "Solutions" , solutions_path %>
-                    </li>
-                    <li>
-                      <%= link_to "About Us" ,root_path(:anchor => 'about')%>
-                    </li>
-                    <li>
-                      <%= link_to "Contact Us" ,root_path(:anchor => 'contact')%>
-                    </li>
-                   <li>
-                      <%= link_to "Profile" , profile_path(:id)%>
-                   </li> 
+                <li>
+                  <%#= link_to "Tutorials" , tutorials_path %> 
+                </li>
+                <li>
+                  <%= link_to "Solutions" , solutions_path %>
+                </li>
+                <li>
+                  <%= link_to "About Us" ,root_path(:anchor => 'about')%>
+                </li>
+                <li>
+                  <%= link_to "Contact Us" ,root_path(:anchor => 'contact')%>
+                </li>
                 <% if user_signed_in? %>
                     <li>
                       <%= link_to "Logout" , destroy_user_session_path , :method => :delete %>
                    </li>
-                   <% if current_user.admin? %>
-                        <li>
-                          <%= link_to "Admin Panel" , rails_admin.dashboard_path %>
-                        </li>
-                        <li>
-                          <%= link_to "Profile" , edit_user_registration_path %>
-                        </li>
-                      <% end %> 
+                   <li>
+                      <%= link_to "Profile" , profile_path(:username)%>
+                   </li> 
+                    <% if current_user.admin? %>
+                      <li>
+                        <%= link_to "Admin Panel" , rails_admin.dashboard_path %>
+                      </li>
+                      <li>
+                        <%= link_to "Profile" , edit_user_registration_path %>
+                      </li>
+                    <% end %> 
                 <% end %>
             </ul>
         </div>

@@ -1,9 +1,4 @@
 class SolutionsController < ApplicationController
-  
-  def all_solutions
-    @solutions = Solution.all
-  end
-
   def index
     if params[:tag]
        @solutions = Solution.tagged_with(params[:tag]).page params[:page]

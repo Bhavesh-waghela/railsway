@@ -11,8 +11,10 @@
             <div class="main-login-form">
               <div class="login-group">
                 <div class="form-group">
-                <%#= f.label :name%>
-                  <%= f.text_field :name, autofocus: true , placeholder: "username" , id: "reg_username" , class: "form-control"%>
+                  <%= f.text_field :name, autofocus: true , placeholder: "name" , id: "reg_username" , class: "form-control"%>
+                </div>
+                <div class="form-group">
+                  <%= f.text_field :username, autofocus: true , placeholder: "username" , id: "reg_username" , class: "form-control"%>
                 </div>
                 <div class="form-group">
                   <label for="reg_username" class="sr-only">Email</label>

@@ -21,12 +21,17 @@
                 </span>
               </div>
             </div>
-            
+                <div class="read-more" style="padding-right: 20px; padding-top: 20px;">
+                  <%= link_to "read more ...", solution_path(solution)%> 
+                </div>
+                <div class="tags" style="padding-top: 20px;">
+                  Tags: <%= raw solution.tags.map(&:name).map { |t| link_to t, tag_path(t) }.join('') %>
+                </div>
           </div>
         <% end %>
-        <div class="all_solutions" style="text-align: center; font-size: 21px;">
-        <%= link_to "All Solutions", all_solutions_path %></div>
-        <%= paginate @solutions %>
+        <div class="pagination">
+          <%= paginate @solutions %>
+        </div>
       </div>
     </div>
     <div class="col-md-3">

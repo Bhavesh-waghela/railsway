@@ -7,8 +7,9 @@ Rails.application.routes.draw do
   resources :tutorials
   resources :solutions
   resources :votes
-  get '/all_solutions', to: 'solutions#all_solutions'
+
   get '/:username' => 'users#show_profile', as: :profile , :id => :name
+  get '/q/users' => "users#search_users", as: :search_users
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
