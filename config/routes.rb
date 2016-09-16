@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   resources :solutions
   resources :votes
 
-  get '/:username' => 'users#show_profile', as: :profile , :id => :name
+  get '/:username' => 'users#show_profile', as: :profile 
   get '/q/users' => "users#search_users", as: :search_users
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

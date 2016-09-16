@@ -13,7 +13,7 @@
         <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
             <ul class="nav navbar-nav">
                 <li>
-                  <div class="input-group-username">
+                  <div class="input-group-username" style="margin-top: 12px;">
                     <%= form_tag search_users_path, method: :get do %>
                       <%= text_field_tag :name, '', value: params[:name] %>
                     <% end %>
@@ -44,9 +44,6 @@
                     <% if current_user.admin? %>
                       <li>
                         <%= link_to "Admin Panel" , rails_admin.dashboard_path %>
-                      </li>
-                      <li>
-                        <%= link_to "Profile" , edit_user_registration_path %>
                       </li>
                     <% end %> 
                 <% end %>

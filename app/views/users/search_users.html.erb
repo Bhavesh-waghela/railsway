@@ -1,59 +1,32 @@
-<div class="row" style="padding-top:126px;">
-  <div class="col-md-5 col-md-offset-3">
+
+<div class="container" style="padding-top:126px;">
+  <div id="products" class="row list-group">
     <% if !@users.blank? %>
-      <div class="card hovercard">
-        <div class="card-background">
-          <img class="card-bkimg" alt="" src="http://lorempixel.com/100/100/people/9/">
-        </div>
-        <div class="useravatar">
-          <img alt="" src="http://lorempixel.com/100/100/people/9/">
-        </div>
-        <div class="card-info">
-            <span class="card-title">
-              <% @users.each do |user| %>
-                <%= user.name%>
-              <%end%>
-            </span>
-        </div>
-      </div>
-      <div class="btn-pref btn-group btn-group-justified btn-group-lg" role="group" aria-label="...">
-        <div class="btn-group" role="group">
-          <button type="button" id="stars" class="btn btn-primary" href="#tab1" data-toggle="tab">
-            <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-              <div class="hidden-xs">Stars</div>
-          </button>
-        </div>
-        <div class="btn-group" role="group">
-              <button type="button" id="favorites" class="btn btn-default" href="#tab2" data-toggle="tab">
-                <span class="glyphicon glyphicon-heart" aria-hidden="true"></span>
-                <div class="hidden-xs">Favorites</div>
-              </button>
-        </div>
-        <div class="btn-group" role="group">
-              <button type="button" id="following" class="btn btn-default" href="#tab3" data-toggle="tab">
-                <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-                <div class="hidden-xs">Following</div>
-              </button>
-        </div>
-      </div>
-      <div class="well">
-        <div class="tab-content">
-          <div class="tab-pane fade in active" id="tab1">
-            <h3>This is tab 1</h3>
-          </div>
-          <div class="tab-pane fade in" id="tab2">
-            <h3>This is tab 2</h3>
-          </div>
-          <div class="tab-pane fade in" id="tab3">
-            <h3>This is tab 3</h3>
+      <% @users.each do |user| %>
+        <div class="item  col-xs-4 col-lg-4">
+          <div class="thumbnail">
+              <img class="group list-group-image" src="https://scontent-ams3-1.cdninstagram.com/t51.2885-15/s640x640/sh0.08/e35/13707232_1742141412716846_1488202823_n.jpg" alt="" />
+            <div class="caption">
+                <h4 class="group inner list-group-item-heading">
+                    <%= link_to user.name , profile_path(user.username) %></h4>
+                <p class="group inner list-group-item-text">
+                    Achievments by user...</p>
+                <div class="row">
+                    <div class="col-xs-12 col-md-6">
+                        <p class="lead">
+                          Followers:  </p>
+                    </div>
+                </div>
+            </div>
           </div>
         </div>
-      </div>
-      <% else %>
-        <%= render 'page_not_found'%>
-    <% end %>
+      <%end%>  
+    <% else %>
+      <%= render 'page_not_found'%>
+    <% end %>  
   </div>
 </div>
+
 
 <footer>
     <div class="container text-center">
@@ -62,99 +35,57 @@
 </footer>
             
 <style type="text/css">
- .card {
-    margin-top: 10px;
-    padding: 30px;
-    background-color: rgba(214, 224, 226, 0.2);
-    -webkit-border-top-left-radius:5px;
-    -moz-border-top-left-radius:5px;
-    border-top-left-radius:5px;
-    -webkit-border-top-right-radius:5px;
-    -moz-border-top-right-radius:5px;
-    border-top-right-radius:5px;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
+ .glyphicon { margin-right:5px; }
+.thumbnail
+{
+    margin-bottom: 20px;
+    padding: 0px;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
 }
-.card.hovercard {
-    position: relative;
-    padding-top: 0;
-    overflow: hidden;
-    text-align: center;
+
+.item.list-group-item
+{
+    float: none;
+    width: 100%;
     background-color: #fff;
-    background-color: rgba(255, 255, 255, 1);
+    margin-bottom: 10px;
 }
-.card.hovercard .card-background {
-    height: 130px;
+.item.list-group-item .list-group-image
+{
+    margin-right: 10px;
 }
-.card-background img {
-    -webkit-filter: blur(25px);
-    -moz-filter: blur(25px);
-    -o-filter: blur(25px);
-    -ms-filter: blur(25px);
-    filter: blur(25px);
-    margin-left: -100px;
-    margin-top: -200px;
-    min-width: 130%;
+.item.list-group-item .thumbnail
+{
+    margin-bottom: 0px;
 }
-.card.hovercard .useravatar {
-    position: absolute;
-    top: 15px;
-    left: 0;
-    right: 0;
+.item.list-group-item .caption
+{
+    padding: 9px 9px 0px 9px;
 }
-.card.hovercard .useravatar img {
-    width: 100px;
-    height: 100px;
-    max-width: 100px;
-    max-height: 100px;
-    -webkit-border-radius: 50%;
-    -moz-border-radius: 50%;
-    border-radius: 50%;
-    border: 5px solid rgba(255, 255, 255, 0.5);
-}
-.card.hovercard .card-info {
-    position: absolute;
-    bottom: 14px;
-    left: 0;
-    right: 0;
-}
-.card.hovercard .card-info .card-title {
-    padding:0 5px;
-    font-size: 20px;
-    line-height: 1;
-    color: #262626;
-    background-color: rgba(255, 255, 255, 0.1);
-    -webkit-border-radius: 4px;
-    -moz-border-radius: 4px;
-    border-radius: 4px;
-}
-.card.hovercard .card-info {
-    overflow: hidden;
-    font-size: 12px;
-    line-height: 20px;
-    color: #737373;
-    text-overflow: ellipsis;
-}
-.card.hovercard .bottom {
-    padding: 0 20px;
-    margin-bottom: 17px;
-}
-.btn-pref .btn {
-    -webkit-border-radius:0 !important;
+.item.list-group-item:before, .item.list-group-item:after
+{
+    display: table;
+    content: " ";
 }
 
-
+.item.list-group-item img
+{
+    float: left;
+}
+.item.list-group-item:after
+{
+    clear: both;
+}
+.list-group-item-text
+{
+    margin: 0 0 11px;
+}
+.img {
+  width: 400px;
+  height: 250px;
+}
 </style>
-
-<script type="text/javascript">
-      $(document).ready(function() {
-$(".btn-pref .btn").click(function () {
-    $(".btn-pref .btn").removeClass("btn-primary").addClass("btn-default");
-    // $(".tab").addClass("active"); // instead of this do the below 
-    $(this).removeClass("btn-default").addClass("btn-primary");   
-});
-});
-</script>
 
 
