@@ -1,1 +1,0 @@
-git push --set-upstream git@heroku.com:rails-way.git master
